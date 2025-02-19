@@ -1,0 +1,23 @@
+{
+  "frames": [
+    {
+      "type": "screen",
+      "content": {
+        "elements": [
+          {
+            "type": "pie",
+            "data": [
+              { "label": "Social", "value": 30 },
+              { "label": "Work", "value": 45 },
+              { "label": "Entertainment", "value": 25 }
+            ],
+            "colors": ["#4A90E2", "#50E3C2", "#E2844A"],
+            "animate": true
+          }
+        ]
+      },
+      "duration": 2000
+    }
+  ],
+  "loop": true
+} 

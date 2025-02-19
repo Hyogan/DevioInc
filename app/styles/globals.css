@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root[data-theme="light"] {
+    --background-primary: 245, 247, 250;  /* Slightly off-white */
+    --background-secondary: 255, 255, 255;
+    --accent-color: 0, 102, 255;
+    --text-primary: 23, 23, 23;  /* Almost black */
+    --text-secondary: 71, 84, 103;  /* Darker gray for better contrast */
+    --gradient-start: rgb(0, 102, 255);
+    --gradient-end: rgb(0, 170, 255);
+    --card-bg: 255, 255, 255;  /* White for cards */
+    --card-border: 226, 232, 240;  /* Light gray border */
+    --nav-bg: 255, 255, 255, 0.8;  /* Semi-transparent white */
+    --form-border: 203, 213, 225;  /* Lighter border for better visibility */
+    --hover-bg: 241, 245, 249;     /* Light hover background */
+    --particle-opacity: 0.7;  
+  }
+
+  :root[data-theme="dark"] {
+    --background-primary: 17, 24, 39;
+    --background-secondary: 31, 41, 55;
+    --accent-color: 0, 255, 148;
+    --text-primary: 255, 255, 255;
+    --text-secondary: 156, 163, 175;
+    --gradient-start: rgb(0, 255, 148);
+    --gradient-end: rgb(0, 184, 255);
+    --card-bg: 31, 41, 55;
+    --card-border: 55, 65, 81;
+    --nav-bg: 17, 24, 39, 0.8;
+
+    --form-border: 55, 65, 81;
+    --hover-bg: 31, 41, 55;
+    --particle-opacity: 0.4;
+  }
+
+  body {
+    @apply transition-colors duration-200;
+    background-color: rgb(var(--background-primary));
+    color: rgb(var(--text-primary));
+  }
+
+  .glass-card {
+    background-color: rgb(var(--card-bg));
+    border: 1px solid rgb(var(--card-border));
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    @apply backdrop-blur-lg rounded-xl;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
+    background-image: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  }
+
+  .primary-button {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-200;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    color: rgb(var(--background-primary));
+    box-shadow: 0 4px 6px -1px rgba(var(--accent-color), 0.2);
+  }
+
+  /* Navigation styles */
+  .nav-bg {
+    background-color: rgb(var(--nav-bg));
+    border-bottom: 1px solid rgb(var(--card-border));
+    @apply backdrop-blur-lg;
+  }
+
+  /* Text colors */
+  .text-primary {
+    color: rgb(var(--text-primary));
+  }
+
+  .text-secondary {
+    color: rgb(var(--text-secondary));
+  }
+
+  /* Background colors */
+  .bg-primary {
+    background-color: rgb(var(--background-primary));
+  }
+
+  .bg-secondary {
+    background-color: rgb(var(--background-secondary));
+  }
+
+  /* Light mode specific adjustments */
+  [data-theme="light"] {
+    .glass-card {
+      background: rgba(var(--card-bg), 0.9);
+    }
+
+    .text-secondary {
+      color: rgb(var(--text-secondary));
+      font-weight: 500; /* Slightly bolder for better readability */
+    }
+
+    .primary-button {
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  /* Dark mode specific adjustments */
+  [data-theme="dark"] {
+    .glass-card {
+      background: rgba(var(--card-bg), 0.7);
+    }
+
+    .primary-button {
+      text-shadow: none;
+    }
+  }
+}
+
+/* Additional utility classes */
+@layer utilities {
+  .gradient-border {
+    border-image: linear-gradient(to right, var(--gradient-start), var(--gradient-end)) 1;
+  }
+}
+
+/* Base styles */
+body {
+  background-color: rgb(var(--background-primary));
+  color: rgb(var(--text-primary));
+  font-family: Arial, Helvetica, sans-serif;
+  /* padding-top: 72px; Adjust this value based on your navbar height */
+}
+
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+.fixed {
+  position: fixed !important;
+}
+
+nav {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Add this if you're using a container */
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card {
+  background: rgba(var(--background-primary), 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(var(--text-primary), 0.1);
+  border-radius: 1rem;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Theme-specific styles */
+[data-theme="light"] {
+  .glass-card {
+    background: rgba(var(--card-bg), 0.9);
+  }
+
+  .primary-button {
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    color: white;
+  }
+}
+
+[data-theme="dark"] {
+  .glass-card {
+    background: rgba(var(--card-bg), 0.7);
+  }
+
+  .primary-button {
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    color: rgb(var(--background-primary));
+  }
+}
+
+/* Transition styles */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  scroll-behavior: smooth;
+  scrollbar-width: 4px;
+}
+.nav-link {
+  @apply relative 
+         text-secondary 
+         hover:text-primary 
+         transition-colors 
+         duration-300;
+}
+
+.nav-link::after {
+  @apply content-[''] 
+         absolute 
+         left-0 
+         bottom-0 
+         w-0 
+         h-[2px] 
+         bg-gradient-to-r 
+         from-[var(--gradient-start)] 
+         to-[var(--gradient-end)]
+         transition-all 
+         duration-300 
+         ease-out;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+
+

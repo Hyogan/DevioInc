@@ -1,0 +1,24 @@
+{
+  "frames": [
+    {
+      "type": "screen",
+      "content": {
+        "elements": [
+          {
+            "type": "timer",
+            "duration": 25,
+            "color": "#50E3C2",
+            "animate": true
+          },
+          {
+            "type": "text",
+            "content": "Focus Mode",
+            "position": "bottom"
+          }
+        ]
+      },
+      "duration": 2000
+    }
+  ],
+  "loop": true
+} 

@@ -1,0 +1,24 @@
+{
+  "frames": [
+    {
+      "type": "screen",
+      "content": {
+        "elements": [
+          {
+            "type": "chart",
+            "data": [25, 45, 30, 60, 20],
+            "color": "#4A90E2",
+            "animate": true
+          },
+          {
+            "type": "text",
+            "content": "Daily Usage",
+            "position": "top"
+          }
+        ]
+      },
+      "duration": 2000
+    }
+  ],
+  "loop": true
+} 
