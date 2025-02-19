@@ -23,7 +23,7 @@ const TestimonialsSection = () => {
       role: "Product Manager",
       company: "TechCorp",
       quote: "Devio has transformed how I manage my screen time. The insights are invaluable, and the UI is incredibly intuitive.",
-      image: "/testimonials/sarah.jpg"
+      image: "/devio-bg.png"
     },
     {
       id: 2,
@@ -31,7 +31,7 @@ const TestimonialsSection = () => {
       role: "Software Engineer",
       company: "DevStudio",
       quote: "As a developer, I was skeptical at first, but Devio's focus features have significantly improved my productivity.",
-      image: "/testimonials/marcus.jpg"
+      image: "/devio-bg.png"
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ const TestimonialsSection = () => {
       role: "Digital Wellness Coach",
       company: "Mindful Tech",
       quote: "I recommend Devio to all my clients. It's the perfect tool for building healthy digital habits.",
-      image: "/testimonials/emma.jpg"
+      image: "/devio-bg.png"
     }
   ];
 

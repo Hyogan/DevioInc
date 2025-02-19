@@ -13,14 +13,14 @@ export const useParallax = (
   options: ParallaxOptions = {}
 ) => {
   const {
-    offset = ["start end", "end start"],
+    // offset = ["start end", "end start"],
     speed = 1,
     direction = 'vertical'
   } = options;
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset
+    offset: ["start end", "end start"]
   });
 
   const range = direction === 'vertical' ? [100 * speed, -100 * speed] : [50 * speed, -50 * speed];
