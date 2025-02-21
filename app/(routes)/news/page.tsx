@@ -16,8 +16,8 @@ const NewsPage = () => {
   const news: NewsItem[] = [
     {
       id: 1,
-      title: "Devio Launches New Focus Mode Features",
-      excerpt: "Enhanced productivity tools to help users maintain digital balance",
+      title: "Devio launch $Devio to support the devio app developpement",
+      excerpt: "$Devio, a cryptocurrency developped by the devio team will be launch on march, 1st 2025. do not miss that",
       date: "2024-03-15",
       category: "product",
       image: "/dashboard.png"

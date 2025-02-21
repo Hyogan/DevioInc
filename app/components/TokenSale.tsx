@@ -10,23 +10,33 @@ import WhitelistForm from './shared/WhitelistForm';
 
 const TokenSale = () => {
   const tokenMetrics = [
-    { label: 'Token Price', value: '$0.05' },
-    { label: 'Total Supply', value: '100M' },
-    { label: 'Initial MCap', value: '$1.5M' },
-    { label: 'Vesting Period', value: '24 months' }
+    { label: 'Token Price', value: '$0.0000065' },
+    { label: 'Total Supply', value: '1B' },
+    { label: 'Initial MCap', value: '$6.5K' },
+    { label: 'Vesting Period', value: '1 March, 2025' }
   ];
+ 
 
+  // const allocationData = [
+  //   { category: 'Public Sale', percentage: 30 },
+  //   { category: 'Team & Advisors', percentage: 20 },
+  //   { category: 'Development', percentage: 20 },
+  //   { category: 'Marketing', percentage: 15 },
+  //   { category: 'Liquidity', percentage: 10 },
+  //   { category: 'Community Rewards', percentage: 5 }
+  // ];
   const allocationData = [
-    { category: 'Public Sale', percentage: 30 },
-    { category: 'Team & Advisors', percentage: 20 },
-    { category: 'Development', percentage: 20 },
-    { category: 'Marketing', percentage: 15 },
-    { category: 'Liquidity', percentage: 10 },
-    { category: 'Community Rewards', percentage: 5 }
-  ];
+    {category: 'Pre-Sale' , percentage: 20},
+    {category: 'Insider' , percentage: 11},
+    {category: 'Development' , percentage: 9}
+  ]
 
   // Set target date to 30 days from now for example
-  const targetDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+  // const targetDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+  const targetDate = new Date('March 1, 2025 10:00:00');
+  const alertTarget = () => {
+    alert(targetDate);
+  }
 
   return (
     <section className="py-20 relative overflow-hidden bg-primary" id="token">
@@ -69,13 +79,13 @@ const TokenSale = () => {
           </div>
 
           {/* Token Allocation */}
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div  className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold mb-6">Token Allocation</h3>
+              <h3 className="text-2xl font-bold mb-6" onClick={()=> alertTarget()}>Token Allocation</h3>
               <div className="space-y-4">
                 {allocationData.map((item, index) => (
                   <div key={item.category} className="relative">
@@ -104,14 +114,14 @@ const TokenSale = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold mb-6">Pre-sale Details</h3>
+              <h3 className="text-2xl font-bold mb-6">Pre-sale Details - {targetDate.toLocaleDateString()}</h3>
               <div className="space-y-6">
                 <div>
                   <p className="text-secondary mb-2">Starts In</p>
                   <CountdownTimer targetDate={targetDate} />
                 </div>
                 <div>
-                  <p className="text-secondary mb-4">Progress (0/1500 ETH)</p>
+                  <p className="text-secondary mb-4">Progress (0/1500 SOL)</p>
                   <div className="h-2 bg-[rgb(var(--background-secondary))] rounded-full">
                     <div className="w-0 h-full bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] rounded-full" />
                   </div>

@@ -15,6 +15,7 @@ const Navbar = () => {
     // { label: 'Ecosystem', href: '#ecosystem' },
     { label: 'Testimonials', href: '#testimonials' },
     { label: 'Timeline', href: '#timeline' },
+    { label: 'Token', href: '#token' },
     { label: 'News', href: 'news' },
     { label: 'Pricing', href: '#pricing' },
     // { label: 'FAQ', href: '#faq' },

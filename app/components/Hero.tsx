@@ -9,6 +9,7 @@ import { ParallaxBackground, ParallaxGradientText } from './shared/ParallaxBackg
 import ParallaxWrapper from './shared/ParallaxWrapper';
 import { containerVariants, itemVariants, useParallax } from '../hooks/useParallax';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -197,7 +198,7 @@ const Hero = () => {
           variants={containerVariants}
         >
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold leading-tight mb-6"
+            className="text-5xl md:text-7xl font-bold mt-10 leading-tight mb-6"
             variants={itemVariants}
           >
             <ParallaxGradientText speed={0.6} className="block">
@@ -232,11 +233,11 @@ const Hero = () => {
                 Start Now
               </motion.button>
               <motion.button 
-                className="px-6 py-3 rounded-full border border-white/20 hover:border-white/40 transition-all"
+                className="rounded-full border border-white/20 hover:border-white/40 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Learn More
+                <Link className='px-6 py-3  w-full h-full' href='/news'>Learn More</Link>
               </motion.button>
             </motion.div>
           </ParallaxWrapper>

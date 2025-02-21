@@ -1,7 +1,7 @@
 import Hero from './components/Hero';
 import DigitalHabitsSection from './components/DigitalHabitsSection';
 import FeaturesSection from './components/FeaturesSection';
-import StatisticsSection from './components/StatisticsSection';
+// import StatisticsSection from './components/StatisticsSection';
 import EcosystemSection from './components/EcosystemSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import TimelineSection from './components/TimelineSection';
@@ -18,7 +18,7 @@ export default function Home() {
         <DigitalHabitsSection />
         <FeaturesSection />
       </div>
-      <StatisticsSection />
+      {/* <StatisticsSection /> */}
       <div id="ecosystem">
         <EcosystemSection />
       </div>
