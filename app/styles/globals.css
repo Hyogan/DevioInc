@@ -18,6 +18,12 @@
     --hover-bg: 241, 245, 249;     /* Light hover background */
     --particle-opacity: 0.7;  
     --fixed-token-socials: 17, 24, 39;
+
+
+    --social-instagram: #e4405f; /* Instagram color */
+    --social-tiktok: #000000; /* TikTok color */
+    --social-email: #ff3b30; /* Email color */
+    --social-discord: #5865f2; /* Discord color*/
   }
 
   :root[data-theme="dark"] {
@@ -35,7 +41,14 @@
     --form-border: 55, 65, 81;
     --hover-bg: 31, 41, 55;
     --particle-opacity: 0.4;
-    --fixed-token-socials: 245, 247, 250;
+    --fixed-token-socials: 245, 100, 250;
+
+    --social-instagram: #e4405f; /* Instagram color */
+    --social-tiktok: #000000; /* TikTok color */
+    --social-email: #ff3b30; /* Email color */
+    --social-discord: #5865f2; /* Discord color*/
+
+
   }
 
   body {

@@ -2,7 +2,6 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-// import {ParallaxWrapper} from './shared/ParallaxWrapper';
 import { ParallaxBackground, ParallaxGradientText } from './shared/ParallaxBackground';
 
 interface TimelineItem {
@@ -18,7 +17,7 @@ interface TimelineItem {
 const TimelineEvent = ({ item, index }: { item: TimelineItem; index: number }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.1,  // Adjusting the threshold to 0.1 to trigger when closer to view
   });
 
   const variants = {
@@ -137,10 +136,6 @@ const TimelineEvent = ({ item, index }: { item: TimelineItem; index: number }) =
 
 const TimelineSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  // const { scrollYProgress } = useScroll({
-  //   target: sectionRef,
-  //   offset: ["start end", "end start"]
-  // });
 
   const timeline: TimelineItem[] = [
     {
@@ -155,20 +150,6 @@ const TimelineSection = () => {
         'App categorization',
       ]
     },
-    // {
-    //   date: 'Q1 2025',
-    //   title: 'Launch & Core Features',
-    //   description: 'Initial release with basic screen time tracking and analytics.',
-    //   status: 'completed',
-    //   gradient: 'from-[#00ff94] to-[#00b8ff]',
-    //   icon: '🚀',
-    //   details: [
-    //     'Cross-platform app release',
-    //     'Basic screen time tracking',
-    //     'Usage analytics dashboard',
-    //     'App categorization'
-    //   ]
-    // },
     {
       date: 'Q2 2025',
       title: 'Advanced Analytics',
@@ -242,4 +223,4 @@ const TimelineSection = () => {
   );
 };
 
-export default TimelineSection; 
+export default TimelineSection;

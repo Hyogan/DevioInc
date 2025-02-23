@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import Link from 'next/link';
 
 const ContactSection = () => {
   const [formState, setFormState] = useState({
@@ -86,12 +87,22 @@ const ContactSection = () => {
                 />
               </div>
 
-              <button
-                type="submit"
+              {/* <button
+                onClick={moveToJoin}
+                type="button"
                 className="w-full primary-button"
               >
                 Send Message
+              </button> */}
+              <button className='w-full primary-button'>
+                <Link
+                  href="https://discord.gg/2KTYvW9q"
+                  className="w-full h-full"
+                >
+                  Send Message
+                </Link>
               </button>
+              
             </form>
           </motion.div>
         </div>

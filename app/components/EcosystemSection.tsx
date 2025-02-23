@@ -3,8 +3,13 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import '../styles/ecosystemSection.css';
+import { useRouter } from 'next/navigation';
 const EcosystemSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const moveToJoin = () => {
+    router.push('/join-us');
+  };
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
@@ -159,6 +164,7 @@ const EcosystemSection = () => {
                 </ul>
 
                 <motion.div 
+                  onClick={moveToJoin}
                   className="mt-6 flex items-center text-sm text-[var(--text-secondary)] group/link"
                   whileHover={{ x: 5 }}
                 >
@@ -187,6 +193,7 @@ const EcosystemSection = () => {
           variants={itemVariants}
         >
           <motion.button
+            onClick={moveToJoin}
             className="primary-button"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

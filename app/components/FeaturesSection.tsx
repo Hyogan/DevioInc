@@ -2,10 +2,16 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useRouter } from 'next/navigation';
 
 const FeaturesSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   useScrollAnimation();
+  const router = useRouter();
+
+  const moveToJoin = () => {
+    router.push('/join-us');
+  };
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -128,6 +134,7 @@ const FeaturesSection = () => {
               <motion.div 
                 className="mt-6 flex items-center text-sm text-[var(--text-secondary)] cursor-pointer group"
                 whileHover={{ x: 5 }}
+                onClick={moveToJoin}
               >
                 Learn more
                 <svg 
@@ -156,6 +163,7 @@ const FeaturesSection = () => {
             className="primary-button"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={moveToJoin}
           >
             Explore All Features
           </motion.button>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 interface UsageData {
   social: number;
@@ -13,6 +14,7 @@ interface UsageData {
 }
 
 const DigitalHabitsSection = () => {
+  const router = useRouter();
   const [desiredLimit, setDesiredLimit] = useState(4);
   const [currentUsage, setCurrentUsage] = useState<UsageData>({
     social: 3,
@@ -20,6 +22,11 @@ const DigitalHabitsSection = () => {
     productivity: 1.5,
     other: 1
   });
+
+  const moveToJoin = () => {
+    router.push('/join-us');
+  };
+
   const graphRef = useRef<HTMLDivElement>(null);
   // const tooltipRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -215,6 +222,7 @@ const DigitalHabitsSection = () => {
                 Our AI-powered insights help you understand and improve your digital habits.
               </p>
               <motion.button 
+                onClick={moveToJoin}
                 className="primary-button mt-8"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

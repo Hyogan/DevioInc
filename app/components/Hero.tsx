@@ -10,6 +10,7 @@ import ParallaxWrapper from './shared/ParallaxWrapper';
 import { containerVariants, itemVariants, useParallax } from '../hooks/useParallax';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,9 +22,15 @@ const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const { transform, opacity } = useParallax(heroRef, { speed: 0.5 });
   const { scrollToSection } = useSmoothScroll();
+  const router = useRouter();
 
+  const moveToJoin = () => {
+    router.push('/join-us');
+  };
+  
   useEffect(() => {
     if (!sceneRef.current) return;
+
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -223,6 +230,7 @@ const Hero = () => {
               variants={itemVariants}
             >
               <motion.button 
+                onClick={()=> moveToJoin()}
                 className="primary-button"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

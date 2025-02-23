@@ -2,8 +2,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useRouter } from 'next/navigation';
 
 const PricingSection = () => {
+  const router = useRouter();
+  const moveToJoin = () => {
+    router.push('/join-us');
+  };
   const [isAnnual, setIsAnnual] = useState(false);
   useScrollAnimation();
 
@@ -174,6 +179,7 @@ const PricingSection = () => {
               </ul>
 
               <button
+                onClick={moveToJoin}
                 className={`w-full py-3 px-6 rounded-full font-medium transition-all ${
                   plan.popular
                     ? 'bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] hover:scale-105'
