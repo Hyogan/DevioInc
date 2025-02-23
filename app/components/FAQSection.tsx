@@ -48,7 +48,7 @@ const FAQSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-20 md:py-32 relative overflow-hidden bg-[var(--primary)]"
+      className="py-20 md:py-32 relative h-full overflow-hidden sm:overflow-visible bg-[var(--primary)]"
       id="faq"
     >
       <ParallaxBackground speed={0.3} />

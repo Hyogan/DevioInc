@@ -2,8 +2,8 @@
 import { motion } from 'framer-motion';
 import ParallaxWrapper from './shared/ParallaxWrapper';
 import {ParallaxGradientText} from './shared/ParallaxBackground';
-import CountdownTimer from './shared/CountdownTimer';
-import WhitelistForm from './shared/WhitelistForm';
+// import CountdownTimer from './shared/CountdownTimer';
+// import WhitelistForm from './shared/WhitelistForm';
 // import TokenUtility from './TokenUtility';
 // import Tokenomics from './Tokenomics';
 // import FundingTiers from './FundingTiers';
@@ -79,8 +79,10 @@ const TokenSale = () => {
           </div>
 
           {/* Token Allocation */}
-          <div  className="grid md:grid-cols-2 gap-12 items-center">
+          {/* <div  className="grid md:grid-cols-2 gap-12 items-center"> */}
+          <div  className="flex w-full flex-col  gap-12 items-center">
             <motion.div
+              className='w-full'
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -108,7 +110,7 @@ const TokenSale = () => {
             </motion.div>
 
             {/* Pre-sale Information */}
-            <motion.div
+            {/* <motion.div
               className="glass-card p-8"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -128,7 +130,7 @@ const TokenSale = () => {
                 </div>
                 <WhitelistForm />
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </ParallaxWrapper>
       </div>

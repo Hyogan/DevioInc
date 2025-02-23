@@ -145,23 +145,35 @@ const TimelineSection = () => {
   const timeline: TimelineItem[] = [
     {
       date: 'Q1 2025',
-      title: 'Launch & Core Features',
-      description: 'Initial release with basic screen time tracking and analytics.',
-      status: 'completed',
+      title: 'Beta ',
+      description: 'Launch of $Devio, to fund the app development',
+      status: 'in-progress',
       gradient: 'from-[#00ff94] to-[#00b8ff]',
       icon: '🚀',
       details: [
-        'Cross-platform app release',
         'Basic screen time tracking',
-        'Usage analytics dashboard',
-        'App categorization'
+        'App categorization',
       ]
     },
+    // {
+    //   date: 'Q1 2025',
+    //   title: 'Launch & Core Features',
+    //   description: 'Initial release with basic screen time tracking and analytics.',
+    //   status: 'completed',
+    //   gradient: 'from-[#00ff94] to-[#00b8ff]',
+    //   icon: '🚀',
+    //   details: [
+    //     'Cross-platform app release',
+    //     'Basic screen time tracking',
+    //     'Usage analytics dashboard',
+    //     'App categorization'
+    //   ]
+    // },
     {
       date: 'Q2 2025',
       title: 'Advanced Analytics',
       description: 'AI-powered insights and personalized recommendations.',
-      status: 'in-progress',
+      status: 'upcoming',
       gradient: 'from-[#FF3366] to-[#FF33FF]',
       icon: '📊',
       details: [
@@ -204,7 +216,7 @@ const TimelineSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-20 md:py-32 relative overflow-hidden bg-[var(--primary)]"
+      className="py-20 md:py-32 relative overflow-hidden sm:overflow-visible bg-[var(--primary)]"
       id="timeline"
     >
       <ParallaxBackground speed={0.3} />

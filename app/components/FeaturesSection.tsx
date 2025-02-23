@@ -66,7 +66,7 @@ const FeaturesSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-20 md:py-32 relative overflow-hidden bg-[var(--primary)]"
+      className="py-20 md:py-32 relative overflow-hidden sm:overflow-visible bg-[var(--primary)]"
     >
       {/* Animated background elements */}
       <motion.div 

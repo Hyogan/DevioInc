@@ -24,10 +24,9 @@ export default function RootLayout({
         <link rel="icon" href="/devio.png" sizes="16x16" />
       </head>
       <body>
-        <div className='fixed p-2 smooth-float text-gray-900  z-[99] right-4 sm:right-10 top-20 bg-white  h-auto shadow-lg rounded-lg flex flex-col items-center space-y-3 border border-gray-200'>
+        <div className='fixed p-2 smooth-float text-gray-900 opacity-80 z-[99] right-4 sm:right-10 top-20 bg-white  h-auto shadow-lg rounded-lg flex flex-col items-center space-y-3 border border-gray-200'>
           <Notif />
         </div>
-
         <ThemeProvider>
           <SmoothScroll>
             <Navbar />
