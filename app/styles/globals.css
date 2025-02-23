@@ -24,6 +24,7 @@
     --social-tiktok: #000000; /* TikTok color */
     --social-email: #ff3b30; /* Email color */
     --social-discord: #5865f2; /* Discord color*/
+    --social-X: #000000; /* X color*/
   }
 
   :root[data-theme="dark"] {
@@ -47,6 +48,7 @@
     --social-tiktok: #000000; /* TikTok color */
     --social-email: #ff3b30; /* Email color */
     --social-discord: #5865f2; /* Discord color*/
+    --social-X: #000000; /* X color*/
 
 
   }

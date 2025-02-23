@@ -26,9 +26,9 @@ const TokenSale = () => {
   //   { category: 'Community Rewards', percentage: 5 }
   // ];
   const allocationData = [
-    {category: 'Pre-Sale' , percentage: 20},
+    // {category: 'Pre-Sale' , percentage: 20},
     {category: 'Insider' , percentage: 11},
-    {category: 'Development' , percentage: 9}
+    {category: 'Development' , percentage: 10}
   ]
 
   // Set target date to 30 days from now for example

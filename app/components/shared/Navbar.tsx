@@ -4,10 +4,16 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 // import { useSmoothScroll } from '../../hooks/useSmoothScroll';
 import ThemeSwitcher from './ThemeSwitcher';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const moveToJoin = () => {
+    router.push('/join-us');
+  };
   // const { scrollToSection } = useSmoothScroll();
 
   const navItems = [
@@ -108,6 +114,7 @@ const Navbar = () => {
               ))}
               <ThemeSwitcher />
               <motion.button
+                onClick={moveToJoin}
                 className="primary-button"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

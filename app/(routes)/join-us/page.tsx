@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-import { FaDiscord, FaEnvelope, FaInstagram, FaTiktok } from 'react-icons/fa6';
+import { FaDiscord, FaEnvelope, FaInstagram, FaTiktok, FaXTwitter } from 'react-icons/fa6';
 import { motion } from 'framer-motion';
 
 const JoinUs = () => {
@@ -48,7 +48,7 @@ const JoinUs = () => {
             Send us an email
           </motion.a>
           <Link
-            href="https://discord.gg/2KTYvW9q"
+            href="https://discord.gg/MmGAmnJ8KA"
             className="bg-transparent text-[rgb(var(--accent-color))] border-2 border-[rgb(var(--accent-color))] hover:bg-[rgb(var(--accent-color))] hover:bg-opacity-30  px-8 py-3 rounded-lg text-md font-semibold hover:text-white transition duration-300"
           >
             Join our community server
@@ -110,12 +110,21 @@ const SocialIcons = () => {
           <FaEnvelope />
         </motion.a>
         <motion.a
-          href="https://discord.gg/2KTYvW9q"
+          href="https://discord.gg/MmGAmnJ8KA"
           className="p-2 rounded-md text-white bg-[var(--social-discord)]  hover:bg-[var(--social-discord)]/80  transition duration-300 text-2xl"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
           <FaDiscord />
+        </motion.a>
+        <motion.a
+          title=''
+          href="https://x.com/DevioInc"
+          className="p-2 rounded-md text-white bg-[var(--social-X)]  hover:bg-[var(--social-X)]/80  transition duration-300 text-2xl"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <FaXTwitter />
         </motion.a>
       </motion.div>
     </>
