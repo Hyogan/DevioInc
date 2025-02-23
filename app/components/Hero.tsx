@@ -1,6 +1,6 @@
 'use client'
 import '../styles/hero.css';
-import React, {useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -21,7 +21,6 @@ const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const { transform, opacity } = useParallax(heroRef, { speed: 0.5 });
   const { scrollToSection } = useSmoothScroll();
-
 
   useEffect(() => {
     if (!sceneRef.current) return;
@@ -53,15 +52,13 @@ const Hero = () => {
     const colors = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount * 3; i += 3) {
-      // Position
       positions[i] = (Math.random() - 0.5) * 10;
       positions[i + 1] = (Math.random() - 0.5) * 10;
       positions[i + 2] = (Math.random() - 0.5) * 10;
 
-      // Color - using the gradient colors
-      colors[i] = Math.random(); // R - for cyan/blue
-      colors[i + 1] = 0.8 + Math.random() * 0.2; // G - for cyan
-      colors[i + 2] = Math.random() * 0.5; // B - for variation
+      colors[i] = Math.random();
+      colors[i + 1] = 0.8 + Math.random() * 0.2;
+      colors[i + 2] = Math.random() * 0.5;
     }
 
     particlesGeometry.setAttribute(
@@ -92,7 +89,6 @@ const Hero = () => {
       particleSystem.rotation.y += 0.0005;
       particleSystem.rotation.x += 0.0002;
 
-      // Add wave motion
       const time = Date.now() * 0.001;
       const positions = particlesGeometry.attributes.position.array;
       for (let i = 0; i < positions.length; i += 3) {
@@ -170,7 +166,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="min-h-screen -mt-20 relative overflow-hidden bg-[var(--primary)]"
+      className="min-h-screen -mt-20 relative overflow-hidden bg-[var(--primary)] flex items-center justify-center"
     >
       {/* 3D Scene Background */}
       <div 
@@ -187,8 +183,9 @@ const Hero = () => {
       />
 
       {/* Main Content */}
-      <motion.div 
-        className="container mx-auto px-6 pt-32 md:pt-40 relative z-10"
+      <motion.div  
+        id='main-content'
+        className="container mx-auto px-6 pt-32 sm:pt-0 relative z-10"
         style={{ y: transform, opacity }}
       >
         <motion.div 
@@ -198,7 +195,7 @@ const Hero = () => {
           variants={containerVariants}
         >
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold mt-10 leading-tight mb-6"
+            className="text-5xl md:text-7xl font-bold leading-tight mb-6"
             variants={itemVariants}
           >
             <ParallaxGradientText speed={0.6} className="block">
@@ -237,7 +234,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link className='px-6 py-3  w-full h-full' href='/news'>Learn More</Link>
+                <Link className='px-6 py-3 w-full h-full' href='/news'>Learn More</Link>
               </motion.button>
             </motion.div>
           </ParallaxWrapper>

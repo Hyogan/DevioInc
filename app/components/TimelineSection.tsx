@@ -144,7 +144,7 @@ const TimelineSection = () => {
 
   const timeline: TimelineItem[] = [
     {
-      date: 'Q1 2024',
+      date: 'Q1 2025',
       title: 'Launch & Core Features',
       description: 'Initial release with basic screen time tracking and analytics.',
       status: 'completed',
@@ -158,7 +158,7 @@ const TimelineSection = () => {
       ]
     },
     {
-      date: 'Q2 2024',
+      date: 'Q2 2025',
       title: 'Advanced Analytics',
       description: 'AI-powered insights and personalized recommendations.',
       status: 'in-progress',
@@ -172,7 +172,7 @@ const TimelineSection = () => {
       ]
     },
     {
-      date: 'Q3 2024',
+      date: 'Q3 2025',
       title: 'Family Features',
       description: 'Family sharing, parental controls, and multi-device sync.',
       status: 'upcoming',
@@ -186,7 +186,7 @@ const TimelineSection = () => {
       ]
     },
     {
-      date: 'Q4 2024',
+      date: 'Q4 2025',
       title: 'Enterprise Solutions',
       description: 'Team management and workplace integration features.',
       status: 'upcoming',

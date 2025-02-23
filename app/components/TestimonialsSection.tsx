@@ -23,7 +23,7 @@ const TestimonialsSection = () => {
       role: "Product Manager",
       company: "TechCorp",
       quote: "Devio has transformed how I manage my screen time. The insights are invaluable, and the UI is incredibly intuitive.",
-      image: "/devio-bg.png"
+      image: "/users/sarah-chen.jpg"
     },
     {
       id: 2,
@@ -31,7 +31,7 @@ const TestimonialsSection = () => {
       role: "Software Engineer",
       company: "DevStudio",
       quote: "As a developer, I was skeptical at first, but Devio's focus features have significantly improved my productivity.",
-      image: "/devio-bg.png"
+      image: "/users/markus-johnson.jpg"
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ const TestimonialsSection = () => {
       role: "Digital Wellness Coach",
       company: "Mindful Tech",
       quote: "I recommend Devio to all my clients. It's the perfect tool for building healthy digital habits.",
-      image: "/devio-bg.png"
+      image: "/users/emma-rodriguez.jpg"
     }
   ];
 
@@ -64,7 +64,7 @@ const TestimonialsSection = () => {
             <span className="gradient-text"> Say</span>
           </h2>
           <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
-            Join thousands of satisfied users who have transformed their digital lives with Devio.
+           Only at the beta stade, consult what users think about Devio !
           </p>
         </motion.div>
 
@@ -83,7 +83,7 @@ const TestimonialsSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] opacity-20" />
                   <img
                     src={testimonials[currentIndex].image}
-                    alt=""
+                    alt={testimonials[currentIndex].name}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -95,7 +95,8 @@ const TestimonialsSection = () => {
                   <div>
                     <h3 className="font-bold text-lg">{testimonials[currentIndex].name}</h3>
                     <p className="text-[var(--text-secondary)]">
-                      {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
+                      {testimonials[currentIndex].role}
+                      {/* at {testimonials[currentIndex].company} */}
                     </p>
                   </div>
                 </div>

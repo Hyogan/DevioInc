@@ -82,7 +82,7 @@ const Navbar = () => {
   // };
 
   return (
-    <div className="sticky top-0 left-0 right-0 z-[9999]">
+    <div className="sticky top-0 left-0 right-0 z-[99999999]">
       <nav 
         className={`w-full transition-all duration-300 ${
           isScrolled ? 'bg-[rgb(var(--background-primary))/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
