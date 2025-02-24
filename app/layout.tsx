@@ -6,6 +6,7 @@ import './styles/globals.css';
 import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
 import Notif from './components/shared/Notif';
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({ 
@@ -38,3 +39,4 @@ export default function RootLayout({
     </html>
   );
 }
+

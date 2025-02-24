@@ -11,6 +11,7 @@ const Insider = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [isLoading,setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -22,6 +23,7 @@ const Insider = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       await fetch(`${URL}`, {
         method: "POST",
@@ -39,6 +41,8 @@ const Insider = () => {
     } catch (error) {
       console.error("Error:", error);
       setMessage("Failed.");
+    }finally{
+      setIsLoading(false);
     }
   };
 
@@ -97,7 +101,11 @@ const Insider = () => {
           whileTap={{ scale: 0.95 }}
           className="w-full p-3 bg-[#00b8ff] text-white font-bold rounded-lg hover:bg-[#0099cc] transition-colors"
         >
-          Send
+          {isLoading ? (
+            <ModernLoader />
+          ) : (
+            'Send'
+          )}
         </motion.button>
       </motion.form>
       
@@ -135,3 +143,46 @@ const Insider = () => {
 };
 
 export default Insider;
+
+
+
+const ModernLoader = () => {
+  return (
+    <>
+      <div className="flex justify-center items-center">
+        <div className="loader">
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+        </div>
+      </div>
+      <style jsx>{`
+        .loader {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          height: 50px;
+        }
+        .dot {
+          width: 20px;
+          height: 20px;
+          background-color: rgb(0, 255, 148);
+          border-radius: 50%;
+          animation: bounce 1.2s infinite ease-in-out both;
+        }
+        .dot:nth-child(1) { animation-delay: -1.1s; }
+        .dot:nth-child(2) { animation-delay: -1.0s; }
+        .dot:nth-child(3) { animation-delay: -0.9s; }
+        .dot:nth-child(4) { animation-delay: -0.8s; }
+        .dot:nth-child(5) { animation-delay: -0.7s; }
+
+        @keyframes bounce {
+          0%, 80%, 100% { transform: scale(0); }
+          40% { transform: scale(1.0); }
+        }
+      `}</style>
+    </>
+  )
+}
