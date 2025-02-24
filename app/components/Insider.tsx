@@ -20,7 +20,7 @@ const Insider = () => {
 
 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     try {
       await fetch(`${URL}`, {
