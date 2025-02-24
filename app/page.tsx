@@ -1,3 +1,4 @@
+'use client'
 import Hero from './components/Hero';
 import DigitalHabitsSection from './components/DigitalHabitsSection';
 import FeaturesSection from './components/FeaturesSection';
@@ -9,6 +10,7 @@ import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
 import TokenSale from './components/TokenSale';
+import Insider from './components/Insider';
 
 export default function Home() {
   return (
@@ -33,6 +35,9 @@ export default function Home() {
       </div>
       <div id="token-sale">
         <TokenSale />
+      </div>
+      <div id='insider'>
+        <Insider />
       </div>
       <div id="faq">
         <FAQSection />
