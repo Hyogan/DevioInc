@@ -8,6 +8,7 @@ const ShowcaseSection = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  
   const deviceVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
@@ -154,6 +155,7 @@ const ShowcaseSection = () => {
                   exit="exit"
                 >
                   {/* Phone 3D Model */}
+                  {/* @ts-expect-ignore - Using custom element */}
                   <spline-viewer url="https://prod.spline.design/ajHtYmdcWyK8rhId/scene.splinecode" className="w-full h-full"></spline-viewer>
                   
                   {/* Phone Content Overlay */}
@@ -188,6 +190,7 @@ const ShowcaseSection = () => {
                   exit="exit"
                 >
                   {/* Laptop 3D Model */}
+                  {/* @ts-expect-ignore - Using custom element */}
                   <spline-viewer url="https://prod.spline.design/eW3EzTHP9ztVjw3J/scene.splinecode" className="w-full h-full"></spline-viewer>
                   
                   {/* Laptop Content Overlay */}
