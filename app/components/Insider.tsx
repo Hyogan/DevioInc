@@ -119,7 +119,7 @@ const Insider = () => {
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <h2 className="text-2xl font-semibold mb-4 text-center text-white">Contact saved</h2>
         <p className="text-gray-200 text-center mb-6">
-            The Devio team thanks you for participating
+            The Devio team thanks you for participating <br />
           <Link href="https://x.com/devioinc" className="text-blue-400 hover:text-blue-600 mx-1">
             Join us on X
           </Link>

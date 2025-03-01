@@ -6,6 +6,7 @@ import './styles/globals.css';
 import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
 import Notif from './components/shared/Notif';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({ 
@@ -22,9 +23,10 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
         <link rel="icon" href="/devio.png" sizes="16x16" />
+        <Script  type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></Script>
       </head>
       <body>
-        <div className='fixed p-2 smooth-float text-gray-900 opacity-80 z-[99] right-4 sm:right-10 top-20 bg-white  h-auto shadow-lg rounded-lg flex flex-col items-center space-y-3 border border-gray-200'>
+      <div className='fixed p-2 smooth-float text-gray-900 opacity-80 z-[99] right-4 sm:right-10 top-20 bg-white  h-auto shadow-lg rounded-lg flex flex-col items-center space-y-3 border border-gray-200'>
           <Notif />
         </div>
         <ThemeProvider>

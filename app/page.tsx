@@ -11,6 +11,7 @@ import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
 import TokenSale from './components/TokenSale';
 import Insider from './components/Insider';
+import ShowcaseSection from './components/ShowcaseSection';
 
 export default function Home() {
   return (
@@ -21,6 +22,9 @@ export default function Home() {
         <FeaturesSection />
       </div>
       {/* <StatisticsSection /> */}
+      <div id="showcase">
+        <ShowcaseSection />
+      </div>
       <div id="ecosystem">
         <EcosystemSection />
       </div>
