@@ -8,18 +8,6 @@ const ShowcaseSection = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
   const deviceVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
