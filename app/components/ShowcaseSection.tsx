@@ -127,7 +127,7 @@ const ShowcaseSection = () => {
         </motion.div>
 
         <div className="relative">
-          <div className="w-full h-[650px] sm:h-[750px] md:h-[850px] flex items-center justify-center relative mb-8">
+          <div className="w-full h-[700px] sm:h-[750px] md:h-[850px] flex items-center justify-center relative mb-8">
             <AnimatePresence initial={false} custom={activeDevice === 'phone' ? 1 : -1}>
               {activeDevice === 'phone' ? (
                 <motion.div
@@ -140,7 +140,7 @@ const ShowcaseSection = () => {
                   exit="exit"
                 >
                   {/* Enhanced modern border for phone model */}
-                  <div className="relative w-full max-w-[900px] aspect-[4/3] flex items-center justify-center">
+                  <div className="relative w-full  max-w-[1500px] aspect-[16/9] flex items-center justify-center">
                     {/* Outer glow */}
                     <div className="absolute inset-0 bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] rounded-[2.5rem] opacity-20 blur-xl"></div>
                     {/* Inner gradient border */}
@@ -153,7 +153,7 @@ const ShowcaseSection = () => {
                       {/* @ts-expect-ignore */}
                       <spline-viewer 
                         url="https://prod.spline.design/0imHGeXBZ2uT4Yj9/scene.splinecode"
-                        className="w-full h-full scale-[1.3]"
+                        className="w-full h-full"
                       />
                     </div>
                   </div>
@@ -189,7 +189,7 @@ const ShowcaseSection = () => {
                   exit="exit"
                 >
                   {/* Enhanced modern border for laptop model */}
-                  <div className="relative w-full max-w-[900px] aspect-[4/3] flex items-center justify-center">
+                  <div className="relative w-full max-w-[1500px] aspect-[16/9] flex items-center justify-center">
                     {/* Outer glow */}
                     <div className="absolute inset-0 bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] rounded-[2.5rem] opacity-20 blur-xl"></div>
                     {/* Inner gradient border */}
@@ -202,7 +202,7 @@ const ShowcaseSection = () => {
                       {/* @ts-expect-ignore */}
                       <spline-viewer 
                         url="https://prod.spline.design/eW3EzTHP9ztVjw3J/scene.splinecode"
-                        className="w-full h-full scale-[1.3]"
+                        className="w-full h-full"
                       />
                     </div>
                   </div>
