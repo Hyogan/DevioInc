@@ -5,6 +5,7 @@ import gsap from 'gsap';
 
 const ShowcaseSection = () => {
   const [activeDevice, setActiveDevice] = useState('phone');
+  //Prevents multiple animations from triggering simultaneously
   const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -147,31 +148,36 @@ const ShowcaseSection = () => {
               {activeDevice === 'phone' ? (
                 <motion.div
                   key="phone-model"
-                  className="w-full h-full absolute"
+                  className="w-full h-full absolute flex items-center justify-center"
                   custom={1}
                   variants={deviceVariants}
                   initial="enter"
                   animate="center"
                   exit="exit"
                 >
-                  {/* Phone 3D Model */}
-                  {/* @ts-expect-ignore - Using custom element */}
-                  <spline-viewer url="https://prod.spline.design/ajHtYmdcWyK8rhId/scene.splinecode" className="w-full h-full"></spline-viewer>
+                  {/* Phone 3D Model - Adjusted container with responsive scaling */}
+                  <div className="w-full h-full flex items-center justify-center">
+                    {/* @ts-expect-ignore - Using custom element */}
+                    <spline-viewer 
+                      url="https://prod.spline.design/ajHtYmdcWyK8rhId/scene.splinecode" 
+                      className="w-full h-full scale-100 sm:scale-110 md:scale-125 lg:scale-[1.3]"
+                    ></spline-viewer>
+                  </div>
                   
-                  {/* Phone Content Overlay */}
+                  {/* Phone Content Overlay - Adjusted for better visibility on small screens */}
                   <motion.div 
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-md"
+                    className="absolute top-[40%] sm:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-md"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.5 }}
                   >
-                    <div className="glass-card p-6 md:p-8 mx-4">
-                      <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 gradient-text">{phoneContent.title}</h3>
-                      <p className="text-[var(--text-secondary)] mb-4 md:mb-6 text-sm md:text-base">{phoneContent.description}</p>
-                      <ul className="space-y-2">
+                    <div className="glass-card p-4 sm:p-6 md:p-8 mx-4 max-h-[300px] sm:max-h-none overflow-y-auto">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 md:mb-4 gradient-text">{phoneContent.title}</h3>
+                      <p className="text-[var(--text-secondary)] mb-3 sm:mb-4 md:mb-6 text-xs sm:text-sm md:text-base">{phoneContent.description}</p>
+                      <ul className="space-y-1 sm:space-y-2">
                         {phoneContent.features.map((feature, index) => (
-                          <li key={index} className="flex items-center">
-                            <span className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] flex items-center justify-center mr-2 md:mr-3 text-xs">✓</span>
+                          <li key={index} className="flex items-center text-xs sm:text-sm md:text-base">
+                            <span className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] flex items-center justify-center mr-2 md:mr-3 text-xs">✓</span>
                             {feature}
                           </li>
                         ))}
@@ -182,31 +188,36 @@ const ShowcaseSection = () => {
               ) : (
                 <motion.div
                   key="laptop-model"
-                  className="w-full h-full absolute scale-125 md:scale-150" // Increased scale for better visibility
+                  className="w-full h-full absolute flex items-center justify-center"
                   custom={-1}
                   variants={deviceVariants}
                   initial="enter"
                   animate="center"
                   exit="exit"
                 >
-                  {/* Laptop 3D Model */}
-                  {/* @ts-expect-ignore - Using custom element */}
-                  <spline-viewer url="https://prod.spline.design/eW3EzTHP9ztVjw3J/scene.splinecode" className="w-full h-full"></spline-viewer>
+                  {/* Laptop 3D Model with responsive scaling */}
+                  <div className="w-full h-full flex items-center justify-center">
+                    {/* @ts-expect-ignore - Using custom element */}
+                    <spline-viewer 
+                      url="https://prod.spline.design/eW3EzTHP9ztVjw3J/scene.splinecode" 
+                      className="w-full h-full scale-100 sm:scale-105 md:scale-110 lg:scale-115"
+                    ></spline-viewer>
+                  </div>
                   
-                  {/* Laptop Content Overlay */}
+                  {/* Laptop Content Overlay - Adjusted for better visibility on small screens */}
                   <motion.div 
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-md"
+                    className="absolute top-[40%] sm:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-md"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.5 }}
                   >
-                    <div className="glass-card p-6 md:p-8 mx-4">
-                      <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 gradient-text">{laptopContent.title}</h3>
-                      <p className="text-[var(--text-secondary)] mb-4 md:mb-6 text-sm md:text-base">{laptopContent.description}</p>
-                      <ul className="space-y-2">
+                    <div className="glass-card p-4 sm:p-6 md:p-8 mx-4 max-h-[300px] sm:max-h-none overflow-y-auto">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 md:mb-4 gradient-text">{laptopContent.title}</h3>
+                      <p className="text-[var(--text-secondary)] mb-3 sm:mb-4 md:mb-6 text-xs sm:text-sm md:text-base">{laptopContent.description}</p>
+                      <ul className="space-y-1 sm:space-y-2">
                         {laptopContent.features.map((feature, index) => (
-                          <li key={index} className="flex items-center">
-                            <span className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] flex items-center justify-center mr-2 md:mr-3 text-xs">✓</span>
+                          <li key={index} className="flex items-center text-xs sm:text-sm md:text-base">
+                            <span className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] flex items-center justify-center mr-2 md:mr-3 text-xs">✓</span>
                             {feature}
                           </li>
                         ))}
