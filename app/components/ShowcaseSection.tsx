@@ -5,7 +5,6 @@ import gsap from 'gsap';
 
 const ShowcaseSection = () => {
   const [activeDevice, setActiveDevice] = useState('phone');
-  //Prevents multiple animations from triggering simultaneously
   const [isAnimating, setIsAnimating] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -24,7 +23,7 @@ const ShowcaseSection = () => {
       rotateY: 0,
       transition: {
         duration: 0.8,
-        ease: [0.16, 1, 0.3, 1], // Custom ease
+        ease: [0.16, 1, 0.3, 1],
       }
     },
     exit: (direction: number) => ({
@@ -34,7 +33,7 @@ const ShowcaseSection = () => {
       rotateY: direction < 0 ? -30 : 30,
       transition: {
         duration: 0.8,
-        ease: [0.16, 1, 0.3, 1], // Custom ease
+        ease: [0.16, 1, 0.3, 1],
       }
     })
   };
@@ -63,17 +62,11 @@ const ShowcaseSection = () => {
 
   const switchDevice = (newDevice: string) => {
     if (isAnimating || newDevice === activeDevice) return;
-    
     setIsAnimating(true);
     setActiveDevice(newDevice);
-    
-    // Reset animation state after transition completes
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 800);
+    setTimeout(() => setIsAnimating(false), 800);
   };
 
-  // Auto-rotate devices every 10 seconds
   useEffect(() => {
     const startRotationTimer = () => {
       timerRef.current = setTimeout(() => {
@@ -82,23 +75,16 @@ const ShowcaseSection = () => {
     };
 
     startRotationTimer();
-
     return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
+      if (timerRef.current) clearTimeout(timerRef.current);
     };
   }, [activeDevice, isAnimating]);
 
-  // Reset timer when user manually switches
   const handleManualSwitch = (device: string) => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-    }
+    if (timerRef.current) clearTimeout(timerRef.current);
     switchDevice(device);
   };
 
-  // Add parallax effect on scroll
   useEffect(() => {
     if (!containerRef.current) return;
 
@@ -140,10 +126,8 @@ const ShowcaseSection = () => {
           </p>
         </motion.div>
 
-        {/* Device display with overlaid content */}
         <div className="relative">
-          {/* 3D Device Display with Content Overlay */}
-          <div className="w-full h-[600px] sm:h-[700px] md:h-[800px] flex items-center justify-center relative mb-8">
+          <div className="w-full h-[650px] sm:h-[750px] md:h-[850px] flex items-center justify-center relative mb-8">
             <AnimatePresence initial={false} custom={activeDevice === 'phone' ? 1 : -1}>
               {activeDevice === 'phone' ? (
                 <motion.div
@@ -155,20 +139,25 @@ const ShowcaseSection = () => {
                   animate="center"
                   exit="exit"
                 >
-                  {/* Phone 3D Model - Adjusted container with responsive scaling */}
-                  <div className="w-full h-full flex items-center justify-center">
-                    {/* @ts-expect-ignore - Using custom element */}
-                    <spline-viewer 
-                      url="https://prod.spline.design/0imHGeXBZ2uT4Yj9/scene.splinecode"
-                      className="w-full h-full scale-100 sm:scale-110 md:scale-125 lg:scale-[1.3]"
-                      ></spline-viewer>
-                    {/* <spline-viewer 
-                      url="https://prod.spline.design/ajHtYmdcWyK8rhId/scene.splinecode" 
-                      className="w-full h-full scale-100 sm:scale-110 md:scale-125 lg:scale-[1.3]"
-                    ></spline-viewer> */}
+                  {/* Enhanced modern border for phone model */}
+                  <div className="relative w-full max-w-[900px] aspect-[4/3] flex items-center justify-center">
+                    {/* Outer glow */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] rounded-[2.5rem] opacity-20 blur-xl"></div>
+                    {/* Inner gradient border */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] rounded-[2.5rem] opacity-10"></div>
+                    {/* Background layer */}
+                    <div className="absolute inset-[2px] bg-[var(--primary)] rounded-[2.5rem]"></div>
+                    {/* Content container with glass effect */}
+                    <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden">
+                      <div className="absolute inset-0 bg-[rgba(255,255,255,0.02)]"></div>
+                      {/* @ts-expect-ignore */}
+                      <spline-viewer 
+                        url="https://prod.spline.design/0imHGeXBZ2uT4Yj9/scene.splinecode"
+                        className="w-full h-full scale-[1.3]"
+                      />
+                    </div>
                   </div>
                   
-                  {/* Phone Content Overlay - Adjusted for better visibility on small screens */}
                   <motion.div 
                     className="absolute top-[40%] sm:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-md"
                     initial={{ opacity: 0, y: 20 }}
@@ -199,16 +188,25 @@ const ShowcaseSection = () => {
                   animate="center"
                   exit="exit"
                 >
-                  {/* Laptop 3D Model with responsive scaling */}
-                  <div className="w-full h-full flex items-center justify-center">
-                    {/* @ts-expect-ignore - Using custom element */}
-                    <spline-viewer 
-                      url="https://prod.spline.design/eW3EzTHP9ztVjw3J/scene.splinecode" 
-                      className="w-full h-full scale-100 sm:scale-105 md:scale-110 lg:scale-115"
-                    ></spline-viewer>
+                  {/* Enhanced modern border for laptop model */}
+                  <div className="relative w-full max-w-[900px] aspect-[4/3] flex items-center justify-center">
+                    {/* Outer glow */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] rounded-[2.5rem] opacity-20 blur-xl"></div>
+                    {/* Inner gradient border */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] rounded-[2.5rem] opacity-10"></div>
+                    {/* Background layer */}
+                    <div className="absolute inset-[2px] bg-[var(--primary)] rounded-[2.5rem]"></div>
+                    {/* Content container with glass effect */}
+                    <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden">
+                      <div className="absolute inset-0 bg-[rgba(255,255,255,0.02)]"></div>
+                      {/* @ts-expect-ignore */}
+                      <spline-viewer 
+                        url="https://prod.spline.design/eW3EzTHP9ztVjw3J/scene.splinecode"
+                        className="w-full h-full scale-[1.3]"
+                      />
+                    </div>
                   </div>
                   
-                  {/* Laptop Content Overlay - Adjusted for better visibility on small screens */}
                   <motion.div 
                     className="absolute top-[40%] sm:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-md"
                     initial={{ opacity: 0, y: 20 }}
@@ -232,7 +230,6 @@ const ShowcaseSection = () => {
               )}
             </AnimatePresence>
 
-            {/* Device Switcher - Positioned at the bottom center */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 glass-card p-2 rounded-full flex space-x-2 z-20">
               <button
                 onClick={() => handleManualSwitch('phone')}
@@ -264,7 +261,6 @@ const ShowcaseSection = () => {
           </div>
         </div>
 
-        {/* Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="parallax-element absolute -top-20 -left-20 w-64 h-64 rounded-full bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] opacity-10 blur-3xl" data-speed="0.05"></div>
           <div className="parallax-element absolute top-1/2 -right-32 w-96 h-96 rounded-full bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] opacity-10 blur-3xl" data-speed="0.08"></div>
