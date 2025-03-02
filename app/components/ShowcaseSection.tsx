@@ -159,9 +159,13 @@ const ShowcaseSection = () => {
                   <div className="w-full h-full flex items-center justify-center">
                     {/* @ts-expect-ignore - Using custom element */}
                     <spline-viewer 
+                      url="https://prod.spline.design/0imHGeXBZ2uT4Yj9/scene.splinecode"
+                      className="w-full h-full scale-100 sm:scale-110 md:scale-125 lg:scale-[1.3]"
+                      ></spline-viewer>
+                    {/* <spline-viewer 
                       url="https://prod.spline.design/ajHtYmdcWyK8rhId/scene.splinecode" 
                       className="w-full h-full scale-100 sm:scale-110 md:scale-125 lg:scale-[1.3]"
-                    ></spline-viewer>
+                    ></spline-viewer> */}
                   </div>
                   
                   {/* Phone Content Overlay - Adjusted for better visibility on small screens */}
