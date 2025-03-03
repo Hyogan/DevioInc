@@ -61,7 +61,7 @@ const ParticleEarth = () => {
 
     // Create particles
     const particles: Particle[] = [];
-    for (let i = 0; i < 800; i++) {
+    for (let i = 0; i < 330; i++) {
       particles.push(new Particle());
     }
 
