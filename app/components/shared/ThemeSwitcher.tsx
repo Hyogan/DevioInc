@@ -4,9 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
-
   const switchTheme = () => {
-    // alert('fsdf');
     toggleTheme();
   }
 

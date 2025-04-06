@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Notif = () => {
   const [isNotifExtended, setIsNotifExtended] = useState(true);
-
   const handleUpdateisNotifExtended = () => {
     setIsNotifExtended(!isNotifExtended);
   };

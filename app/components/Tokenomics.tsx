@@ -1,4 +1,4 @@
-'use client'
+
 import { motion } from 'framer-motion';
 import  ParallaxWrapper  from './shared/ParallaxWrapper';
 

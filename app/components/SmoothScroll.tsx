@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -26,10 +26,8 @@ const SmoothScroll = ({ children }: SmoothScrollProps) => {
       markers: false, // Set to true for debugging
       scrub: 1,
      });
-
     // Refresh ScrollTrigger when the component mounts
     ScrollTrigger.refresh();
-
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };

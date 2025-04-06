@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
@@ -73,7 +73,6 @@ const ShowcaseSection = () => {
         switchDevice(activeDevice === 'phone' ? 'laptop' : 'phone');
       }, 10000);
     };
-
     startRotationTimer();
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);

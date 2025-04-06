@@ -1,5 +1,4 @@
 'use client'
-import '../styles/hero.css';
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
@@ -30,8 +29,6 @@ const Hero = () => {
   
   useEffect(() => {
     if (!sceneRef.current) return;
-
-
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(

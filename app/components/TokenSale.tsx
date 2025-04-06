@@ -1,4 +1,3 @@
-'use client'
 import { motion } from 'framer-motion';
 import ParallaxWrapper from './shared/ParallaxWrapper';
 import {ParallaxGradientText} from './shared/ParallaxBackground';
@@ -12,8 +11,8 @@ const TokenSale = () => {
   const tokenMetrics = [
     { label: 'Token Price', value: '$0.0000065' },
     { label: 'Total Supply', value: '1B' },
-    { label: 'Initial MCap', value: '$6.5K' },
-    { label: 'Vesting Period', value: '1 March, 2025' }
+    { label: 'Initial MCap', value: '$3.5K' },
+    { label: 'Vesting Period', value: '7 April, 2025' }
   ];
  
 

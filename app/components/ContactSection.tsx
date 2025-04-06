@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -15,6 +15,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // alert(formState.email);
     // Handle form submission
     console.log('Form submitted:', formState);
   };

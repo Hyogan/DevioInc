@@ -1,8 +1,6 @@
-'use client'
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import '../styles/ecosystemSection.css';
 import { useRouter } from 'next/navigation';
 const EcosystemSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -18,8 +16,7 @@ const EcosystemSection = () => {
   useScrollAnimation();
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-  // const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-
+  
   const platforms = [
     {
       name: "Mobile",
@@ -163,7 +160,7 @@ const EcosystemSection = () => {
                   ))}
                 </ul>
 
-                <motion.div 
+                <motion.button
                   onClick={moveToJoin}
                   className="mt-6 flex items-center text-sm text-[var(--text-secondary)] group/link"
                   whileHover={{ x: 5 }}
@@ -182,7 +179,7 @@ const EcosystemSection = () => {
                       d="M9 5l7 7-7 7" 
                     />
                   </svg>
-                </motion.div>
+                </motion.button>
               </motion.div>
             </motion.div>
           ))}
