@@ -192,6 +192,7 @@ const Hero = () => {
         className="container mx-auto px-6 pt-32 sm:pt-0 relative z-10"
         style={{ y: transform, opacity }}
       >
+      <div className="flex flex-col md:flex-row items-center justify-between gap-10">
         <motion.div 
           className="max-w-4xl"
           initial="hidden"
@@ -244,6 +245,11 @@ const Hero = () => {
             </motion.div>
           </ParallaxWrapper>
         </motion.div>
+          {/* Device Mockup */}
+        <div className="hidden md:block">
+        <DeviceMockup />
+      </div>
+        </div>
       </motion.div>
 
       {/* Scroll Indicator */}
@@ -278,3 +284,136 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
+const DeviceMockup = () => {
+  const mockupRef = useRef<HTMLDivElement>(null);
+  const { transform } = useParallax(mockupRef, { speed: 0.7 });
+  
+  useEffect(() => {
+    if (!mockupRef.current) return;
+    // Notification animation
+    const notifications = mockupRef.current.querySelectorAll('.notification');
+    notifications.forEach((notification, index) => {
+      gsap.fromTo(notification, 
+        { y: 20, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 0.5, 
+          delay: 1.5 + (index * 0.3),
+          ease: "back.out(1.7)"
+        }
+      );
+    });
+    
+    // Screen glow animation
+    const glowElement = mockupRef.current.querySelector('.screen-glow');
+    if (glowElement) {
+      // Create a timeline for the opacity animation
+      const glowTimeline = gsap.timeline({
+        repeat: -1,
+        yoyo: true
+      });
+      glowTimeline
+        .to(glowElement, { opacity: 0.4, duration: 0 }) // Start at 0.4
+        .to(glowElement, { opacity: 0.8, duration: 1.5, ease: "sine.inOut" }) // Animate to 0.8
+        .to(glowElement, { opacity: 0.4, duration: 1.5, ease: "sine.inOut" }); // Back to 0.4
+    }
+    
+    // Usage chart animation
+    gsap.from('.usage-bar', {
+      scaleX: 0,
+      duration: 1.5,
+      delay: 2,
+      stagger: 0.2,
+      ease: "power2.out"
+    });
+    
+  }, []);
+  
+  return (
+    <motion.div 
+      ref={mockupRef}
+      className="relative"
+      style={{ y: transform }}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, delay: 0.5 }}
+    >
+      {/* Phone frame */}
+      <div className="relative w-[280px] h-[580px] bg-[#222] rounded-[40px] p-3 shadow-xl border-[8px] border-[#333] overflow-hidden">
+        {/* Screen glow effect */}
+        <div className="screen-glow absolute inset-0 bg-gradient-to-br from-[rgba(0,255,148,0.15)] to-[rgba(0,184,255,0.15)] opacity-60 z-0"></div>
+        
+        {/* App interface */}
+        <div className="relative z-10 bg-[#111] rounded-[32px] h-full w-full overflow-hidden p-4 flex flex-col">
+          {/* App header */}
+          <div className="flex justify-between items-center mb-6">
+            <div className="text-[#00ffaa] font-bold text-lg">Devio</div>
+            <div className="w-8 h-8 rounded-full bg-[#333] flex items-center justify-center">
+              <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#00ffaa] to-[#00b8ff]"></div>
+            </div>
+          </div>
+          
+          {/* Usage summary */}
+          <div className="bg-[#1a1a1a] rounded-xl p-3 mb-4">
+            <div className="text-sm text-white/80 mb-2">Today&apos;s screen time</div>
+            <div className="text-2xl font-bold text-white mb-1">3h 24m</div>
+            <div className="text-xs text-[#00ffaa]">-28% from yesterday</div>
+          </div>
+          
+          {/* Usage chart */}
+          <div className="bg-[#1a1a1a] rounded-xl p-3 mb-4">
+            <div className="text-sm text-white/80 mb-3">App usage</div>
+            <div className="space-y-3">
+              <div>
+                <div className="flex justify-between text-white text-xs mb-1">
+                  <span>Social Media</span>
+                  <span>1h 12m</span>
+                </div>
+                <div className="h-2 bg-[#333] rounded-full overflow-hidden">
+                  <div className="usage-bar h-full w-[70%] bg-gradient-to-r from-[#ff5e62] to-[#ff9966] rounded-full"></div>
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between text-white text-xs mb-1">
+                  <span>Productivity</span>
+                  <span>1h 45m</span>
+                </div>
+                <div className="h-2 bg-[#333] rounded-full overflow-hidden">
+                  <div className="usage-bar h-full w-[85%] bg-gradient-to-r from-[#00ffaa] to-[#00b8ff] rounded-full"></div>
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between text-xs text-white mb-1">
+                  <span>Entertainment</span>
+                  <span>27m</span>
+                </div>
+                <div className="h-2 bg-[#333] rounded-full overflow-hidden">
+                  <div className="usage-bar h-full w-[25%] bg-gradient-to-r from-[#a18cd1] to-[#fbc2eb] rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Notifications */}
+          <div className="space-y-2">
+            <div className="notification bg-[#1a1a1a] rounded-lg p-2 border-l-2 border-[#00ffaa]">
+              <div className="text-xs text-white/80">Wellness tip</div>
+              <div className="text-xs text-white">Take a 5-minute break from your screen</div>
+            </div>
+            <div className="notification bg-[#1a1a1a] rounded-lg p-2 border-l-2 border-[#00b8ff]">
+              <div className="text-xs text-white text-white/80">Goal achieved</div>
+              <div className="text-xs">Reduced social media usage by 30%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Floating elements */}
+      <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-[#00ffaa] to-[#00b8ff] rounded-full opacity-70 blur-sm animate-pulse"></div>
+      <div className="absolute -bottom-6 -left-2 w-16 h-16 bg-gradient-to-br from-[#a18cd1] to-[#fbc2eb] rounded-full opacity-60 blur-sm animate-pulse delay-1000"></div>
+    </motion.div>
+  );
+};

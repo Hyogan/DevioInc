@@ -95,7 +95,7 @@ const FAQSection = () => {
 
           {/* FAQ Items */}
           <motion.div className="space-y-4" variants={containerVariants}>
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="sync">
               {filteredFaqs.map((faq, index) => (
                 <motion.div
                   key={index}
